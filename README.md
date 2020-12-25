@@ -13,6 +13,6 @@
 
 [Product Hunt](https://www.producthunt.com/) is a great place to find new and interesting products. I want to use RSS to subscribe daily top posts but failed to find one.
 
-## Preview
+## [Preview](https://feeds.pub/feed/https%3A%2F%2Fraw.githubusercontent.com%2Fheadllines%2Fproducthunt-daily-rss%2Fmaster%2Frss.xml)
 
-![](./assets/preview.png)
+<img width="435" alt="Product Hunt daily RSS preview" src="./assets/preview.png">
