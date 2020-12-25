@@ -12,3 +12,7 @@
 ## Why
 
 [Product Hunt](https://www.producthunt.com/) is a great place to find new and interesting products. I want to use RSS to subscribe daily top posts but failed to find one.
+
+## Preview
+
+![](./assets/preview.png)
