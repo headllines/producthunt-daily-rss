@@ -1,25 +1,21 @@
-const getHeadlines = require('./utils/getHeadlines');
-const issue = require('./utils/issue');
+const { Feed } = require('feed');
+const dayjs = require('dayjs');
+const fs = require('fs');
 
-// run every day at 00:01 UTC
-const run = async (date) => {
-  const contents = await getHeadlines(date);
-  console.log(contents)
-  const res = await issue.open({
-    owner: 'headllines',
-    repo: 'hackernews-daily',
-    title: `Hacker News Daily Top 10 @${new Date(date).toISOString().slice(0, 10)}`,
-    body: contents
-  });
+const feed = new Feed({
+  title: 'Product Hunt daily RSS feed',
+  description: 'The missing RSS feed for ProductHunt daily top posts',
+  link: 'https://github.com/headllines/producthunt-daily-rss',
+});
 
-  const issueNumber = res.data.number;
+const items = Array(15).fill()
+  .map((_, i) => dayjs().subtract(i + 1, 'day'))
+  .map(day => ({
+    title: `Product Hunt daily top posts @${day.format('YYYY/MM/DD')}`,
+    date: day.toDate(),
+    link: `https://www.producthunt.com/time-travel/${day.format('YYYY/MM/DD')}/`,
+  }))
+  .forEach(item => feed.addItem(item));
 
-  await issue.lock({
-    owner: 'headllines',
-    repo: 'hackernews-daily', 
-    issueNumber,
-  });
-}
-
-run(new Date())
-  .catch(err => {throw err});
+const RSSXML = feed.rss2();
+fs.writeFileSync('./rss.xml', RSSXML);

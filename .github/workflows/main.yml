@@ -1,27 +1,33 @@
-name: hackernews-daily-top
+name: producthunt-daily-top
 
 on:
   schedule:
   - cron: "1 0 * * *"
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 jobs:
-  fetch-top-posts:
+  generate-feed:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
         node-version: 12.x
     - name: npm install
-      run: npm install --only=prod
+      run: npm install
       working-directory: .
-    - name: fetch
+    - name: Create feed
       run: node index.js
-      working-directory: .
-      # for github app auth
-      env:
-        clientSecret: ${{ secrets.clientSecret }}
-        privateKey: ${{ secrets.privateKey }}
-        
-        
+    - name: Commit files
+      run: |
+        git config --local user.email "actions@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "update feed content"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
