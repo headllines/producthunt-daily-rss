@@ -12,7 +12,7 @@ const items = Array(15).fill()
   .map((_, i) => dayjs().subtract(i + 1, 'day'))
   .map(day => ({
     title: `Product Hunt daily top posts @${day.format('YYYY/MM/DD')}`,
-    date: day.toDate(),
+    date: day.add(1, 'day').toDate(),
     link: `https://www.producthunt.com/time-travel/${day.format('YYYY/MM/DD')}/`,
   }))
   .forEach(item => feed.addItem(item));
