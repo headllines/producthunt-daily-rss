@@ -4,9 +4,15 @@
         <title>Product Hunt daily RSS feed</title>
         <link>https://github.com/headllines/producthunt-daily-rss</link>
         <description>The missing RSS feed for ProductHunt daily top posts</description>
-        <lastBuildDate>Mon, 24 Mar 2025 06:12:41 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 25 Mar 2025 06:12:41 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Product Hunt daily top posts @2025/03/24]]></title>
+            <link>https://www.producthunt.com/time-travel/2025/03/24/</link>
+            <guid>https://www.producthunt.com/time-travel/2025/03/24/</guid>
+            <pubDate>Tue, 25 Mar 2025 06:12:41 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Product Hunt daily top posts @2025/03/23]]></title>
             <link>https://www.producthunt.com/time-travel/2025/03/23/</link>
@@ -90,12 +96,6 @@
             <link>https://www.producthunt.com/time-travel/2025/03/10/</link>
             <guid>https://www.producthunt.com/time-travel/2025/03/10/</guid>
             <pubDate>Tue, 11 Mar 2025 06:12:41 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Product Hunt daily top posts @2025/03/09]]></title>
-            <link>https://www.producthunt.com/time-travel/2025/03/09/</link>
-            <guid>https://www.producthunt.com/time-travel/2025/03/09/</guid>
-            <pubDate>Mon, 10 Mar 2025 06:12:41 GMT</pubDate>
         </item>
     </channel>
 </rss>
